@@ -9,7 +9,6 @@ const mapStateToProps = (state) => {
   }
 }
 const mapDispatchToProps = (dispatch) => {
-  console.log('dispatch', dispatch)
   return {
     increment: () => dispatch({ type: 'Increment' }),
     decrement: () => dispatch({ type: 'Decrement' })
@@ -17,9 +16,17 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 class Counter extends Component {
+  constructor () {
+    super()
+    this.state = {
+      msg: 'Hello World'
+    }
+  }
+
   render () {
     return (
     <>
+      {this.state.msg}
       {this.props.count}<br/>
       <button onClick={() => this.props.increment()}>+</button>
       <button onClick={() => this.props.decrement()}>-</button>
